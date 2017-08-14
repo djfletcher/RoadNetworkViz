@@ -1,7 +1,7 @@
 import React from 'react';
 import mapboxgl from 'mapbox-gl/dist/mapbox-gl';
 import createLayer from './map_layer';
-import { getBbox, countCrimes } from './gis_calculations';
+// import { getBbox, countCrimes } from './gis_calculations';
 import mapOverlay from './map_overlay';
 
 class DataMap extends React.Component {
@@ -37,8 +37,7 @@ class DataMap extends React.Component {
       style: 'mapbox://styles/djfletcher/cj369eru100002rpkokn2981h',
       center: [-122.447303, 37.768874],
       zoom: 12,
-      // maxBounds: [[-122.565169, 37.693269], [-122.171389, 37.859369]]
-      // maxBounds: [[-123.255444, 37.291841], [-121.182195, 38.166895]]
+      maxBounds: [[-123.255444, 37.291841], [-121.182195, 38.166895]]
     });
 
     this.requestData();
@@ -236,16 +235,6 @@ class DataMap extends React.Component {
   render() {
     const toggleableLayers = (
       <ul className="legend">
-        <li
-          id="crime"
-          className="active"
-          onClick={ () => this.handleToggle('crime') }>Crime Incidents
-        </li>
-        <li
-          id="neighborhoods"
-          className="active"
-          onClick={ () => this.handleToggle('neighborhoods') }>Neighborhoods
-        </li>
         <li
           id="intersections"
           className="active"
